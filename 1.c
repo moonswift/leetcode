@@ -30,5 +30,7 @@ int main()
     char result[] = "abbaca";
     char* s = (char*)malloc(sizeof(char) * strlen(result) + 1);
     s = removeDuplicates(result);
+    char ttl[10] = "aabaabaaf";
+    printf("%d", strlen(ttl));
     return 0;
 }
