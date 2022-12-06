@@ -143,19 +143,35 @@ public:
         return result;
     }
 };
+class Qucik {
+public:
+    vector<int> quickSort(vector<int>&nums, int start, int end)
+    {
+        if (start >= end) return nums;
+        int base = nums[start];
+        int i = start;
+        int j = end;
+        while (i < j)
+        {
+            while (i < j && nums[j] >= base) j--; //从右往左，寻找比base小的数
+            swap(nums[i], nums[j]); //找到比base小的数，即与base交换位置
+            while (i < j && nums[i] <= base) i++; //从左往右，寻找比base大的数
+            swap(nums[i], nums[j]); //找到比base大的数，即与base交换位置
+        }
+        quickSort(nums, start, i - 1);
+        quickSort(nums, i + 1, end);
+        return nums;
+    }
+    
+    int findKth(vector<int> a, int n, int K) {
+        quickSort(a, 0, n-1);
+        return a[n-K];
+    }
+};
+
+
 int main()
 {
-    //Building bd;
-	//Solution solu;
-    //laoWang1(&bd);
-	/*vector<int>nums{2, 2, 1, 1, 1, 2, 2};
-	int value = 0;
-	int res = solu.majorityElement(nums);
-	cout << "mode is : ";
-	cout << res;*/
-	//string s = "hello world";
-	//const char *p = s.c_str() + s.size() - 1;
-	vector<int>nums{2, 2, 1, 1, 1, 2, 2};
-	cout << nums.size();
+
 	return 0;
 }
