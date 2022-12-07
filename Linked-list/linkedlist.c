@@ -28,7 +28,7 @@ LNode * creat_linkedlist(int * arc, int length) {
 }
 void display(LNode *p) {
     while (p) {
-        printf("%d ", p->val);
+        printf("val : %d ", p->val);
         p = p->next;
     }
     printf("\n");
